@@ -1,8 +1,14 @@
 export function NewOpinion() {
+  function opinionAction(formData) {
+    const userName = formData.get('userName');
+    const title = formData.get('title');
+    const opinion = formData.get('body');
+}
+
   return (
     <div id="new-opinion">
       <h2>Share your opinion!</h2>
-      <form>
+      <form onSubmit={opinionAction}>
         <div className="control-row">
           <p className="control">
             <label htmlFor="userName">Your Name</label>
