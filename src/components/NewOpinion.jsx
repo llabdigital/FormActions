@@ -44,17 +44,17 @@ export function NewOpinion() {
         <div className="control-row">
           <p className="control">
             <label htmlFor="userName">Your Name</label>
-            <input type="text" id="userName" name="userName" />
+            <input type="text" id="userName" name="userName" defaultValue={formState.enteredValues?.userName} />
           </p>
 
           <p className="control">
             <label htmlFor="title">Title</label>
-            <input type="text" id="title" name="title" />
+            <input type="text" id="title" name="title" defaultValue={formState.enteredValues?.title} />
           </p>
         </div>
         <p className="control">
           <label htmlFor="body">Your Opinion</label>
-          <textarea id="body" name="body" rows={5}></textarea>
+          <textarea id="body" name="body" defaultValue={formState.enteredValues?.body} rows={5}></textarea>
         </p>
         {formState.errors && (
           <ul className="errors">
