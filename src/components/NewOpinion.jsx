@@ -16,6 +16,20 @@ export function NewOpinion() {
     if (body.trim() < 10 || body.trim().length > 3000) {
       errors.push('Opinion must be between 10 and 300 charactors long');
     }
+
+    if (errors.length > 0) {
+      return {
+        errors: errors,
+        enteredValues: {
+          title,
+          userName,
+          body
+      } };
+    }
+
+    //Submit value to backend if we make it through the check
+
+    return {errors: null}
   }
 
   return (
