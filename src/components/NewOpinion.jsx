@@ -1,3 +1,5 @@
+import { useActionState } from "react";
+
 export function NewOpinion() {
   function opinionAction(formData) {
     const userName = formData.get('userName');
@@ -31,11 +33,11 @@ export function NewOpinion() {
 
     return {errors: null}
   }
-
+const [formState, formAction] = useActionState(opinionAction, {errors: null})
   return (
     <div id="new-opinion">
       <h2>Share your opinion!</h2>
-      <form onSubmit={opinionAction}>
+      <form onSubmit={formAction}>
         <div className="control-row">
           <p className="control">
             <label htmlFor="userName">Your Name</label>
