@@ -1,4 +1,4 @@
-import { useActionState } from "react";
+import { useActionState } from 'react';
 
 export function NewOpinion() {
   function opinionAction(prevFormState, formData) {
@@ -25,15 +25,18 @@ export function NewOpinion() {
         enteredValues: {
           title,
           userName,
-          body
-      } };
+          body,
+        },
+      };
     }
 
     //Submit value to backend if we make it through the check
 
-    return {errors: null}
+    return { errors: null };
   }
-const [formState, formAction] = useActionState(opinionAction, {errors: null})
+  const [formState, formAction] = useActionState(opinionAction, {
+    errors: null,
+  });
   return (
     <div id="new-opinion">
       <h2>Share your opinion!</h2>
@@ -53,7 +56,13 @@ const [formState, formAction] = useActionState(opinionAction, {errors: null})
           <label htmlFor="body">Your Opinion</label>
           <textarea id="body" name="body" rows={5}></textarea>
         </p>
-
+        {formState.errors && (
+          <ul className="errors">
+            {errors.map((error) => (
+              <li key={error}>{error}</li>
+            ))}
+          </ul>
+        )}
         <p className="actions">
           <button type="submit">Submit</button>
         </p>
