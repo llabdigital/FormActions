@@ -40,21 +40,36 @@ export function NewOpinion() {
   return (
     <div id="new-opinion">
       <h2>Share your opinion!</h2>
-      <form onSubmit={formAction}>
+      <form action={formAction}>
         <div className="control-row">
           <p className="control">
             <label htmlFor="userName">Your Name</label>
-            <input type="text" id="userName" name="userName" defaultValue={formState.enteredValues?.userName} />
+            <input
+              type="text"
+              id="userName"
+              name="userName"
+              defaultValue={formState.enteredValues?.userName}
+            />
           </p>
 
           <p className="control">
             <label htmlFor="title">Title</label>
-            <input type="text" id="title" name="title" defaultValue={formState.enteredValues?.title} />
+            <input
+              type="text"
+              id="title"
+              name="title"
+              defaultValue={formState.enteredValues?.title}
+            />
           </p>
         </div>
         <p className="control">
           <label htmlFor="body">Your Opinion</label>
-          <textarea id="body" name="body" defaultValue={formState.enteredValues?.body} rows={5}></textarea>
+          <textarea
+            id="body"
+            name="body"
+            defaultValue={formState.enteredValues?.body}
+            rows={5}
+          ></textarea>
         </p>
         {formState.errors && (
           <ul className="errors">
