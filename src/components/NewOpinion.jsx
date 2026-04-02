@@ -3,7 +3,20 @@ export function NewOpinion() {
     const userName = formData.get('userName');
     const title = formData.get('title');
     const opinion = formData.get('body');
-}
+
+    let errors = [];
+
+    if (title.trim().length < 5) {
+      errors.push('Make sure the title has more than 5 charactors');
+    }
+    if (!userName.trim()) {
+      errors.push('Please provide your name');
+    }
+
+    if (body.trim() < 10 || body.trim().length > 3000) {
+      errors.push('Opinion must be between 10 and 300 charactors long');
+    }
+  }
 
   return (
     <div id="new-opinion">
