@@ -1,10 +1,10 @@
 import { useActionState } from "react";
 
 export function NewOpinion() {
-  function opinionAction(formData) {
+  function opinionAction(prevFormState, formData) {
     const userName = formData.get('userName');
     const title = formData.get('title');
-    const opinion = formData.get('body');
+    const body = formData.get('body');
 
     let errors = [];
 
