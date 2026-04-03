@@ -82,9 +82,7 @@ export function NewOpinion() {
             ))}
           </ul>
         )}
-        <p className="actions">
-          <button type="submit">Submit</button>
-        </p>
+        
       </form>
     </div>
   );
