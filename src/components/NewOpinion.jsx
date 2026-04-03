@@ -1,6 +1,9 @@
-import { useActionState } from 'react';
+import { useActionState, use } from 'react';
+import { OpinionsContext } from '../store/opinions-context';
 
 export function NewOpinion() {
+  use(OpinionsContext);
+
   function opinionAction(prevFormState, formData) {
     const userName = formData.get('userName');
     const title = formData.get('title');
@@ -31,6 +34,7 @@ export function NewOpinion() {
     }
 
     //Submit value to backend if we make it through the check
+
 
     return { errors: null };
   }
