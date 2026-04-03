@@ -2,9 +2,9 @@ import { useActionState, use } from 'react';
 import { OpinionsContext } from '../store/opinions-context';
 
 export function NewOpinion() {
-  use(OpinionsContext);
+  const {addOpinion } = use(OpinionsContext);
 
-  function opinionAction(prevFormState, formData) {
+  async function opinionAction(prevFormState, formData) {
     const userName = formData.get('userName');
     const title = formData.get('title');
     const body = formData.get('body');
@@ -34,8 +34,7 @@ export function NewOpinion() {
     }
 
     //Submit value to backend if we make it through the check
-
-
+    await addOpinion({title,body,userName})
     return { errors: null };
   }
   const [formState, formAction] = useActionState(opinionAction, {
